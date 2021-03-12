@@ -28,7 +28,7 @@ ota:
 #   Blink slowly = Temporary issue (WiFi/MQTT disconnected, sensor unavailable, ...)
 #   Blink quickly = Error encountered
 status_led:
-  pin: GPIO4
+  pin: GPIO4 #checked
 
 # Configure the IR receiver. Handy to pickup confirmation messages
 # from your AC (or capture commands from the actual remote)
@@ -41,10 +41,10 @@ remote_receiver:
 
 # Configure the IR LED: this one sends commands to other devices
 remote_transmitter:
-  pin: GPIO14
+  pin: GPIO14 #checked
   carrier_duty_percent: 50%
   
-# Import the state of the Aqara sensor from Home Assistant into ESPHome.
+# Import the state of the Aqara sensor from Home Assistant into ESPHome. If you don't have a temperature sensor in the room, delete this component.
 sensor:
   - platform: homeassistant
     name: "Current temperature"
@@ -58,4 +58,4 @@ climate:
     name: "Bedroom AC"
     receiver_id: rcvr
     # Add a reference to the temperature sensor here
-    sensor: temp21
+    sensor: temp21 # if you don't have a temperature sensor in the room, delete this line.
